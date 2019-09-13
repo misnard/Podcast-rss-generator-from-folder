@@ -1,6 +1,6 @@
-# RSS GENERATOR
+# Podcast RSS Generator From Folder
 
-RSS Generator is a PHP script able to parse the folder in which it is stored.
+Podcast RSS Generator From Folder (PRGFF, don't try to say it) is a small but damn efficient PHP script able to parse the folder in which it is stored.
 It will generate for you, lazies out there,a podcast feed which will somewhat work but iTunes will probably pee on it with disgust
 
 That's about it.
