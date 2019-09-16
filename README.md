@@ -41,3 +41,6 @@ The only thing is that you'd better have some id3tags ready in your files, AS YO
 
 That will be fun, lads.
 
+### Troubleshooting 
+Just delete the /.rss-gen-cache/ folder, it should regenerate everything from scratch
+
