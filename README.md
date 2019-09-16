@@ -21,6 +21,7 @@ The only thing is that you'd better have some id3tags ready in your files, AS YO
    - get the title from the title of the media (id3tag)
    - get the author from the artist of the media (id3tag)
    - get description fom the comment section of the id3tags (why not accept markdown formatting)
+   - get link from the URL field of the media (id3tag)
    - GET ALL THE INFOS FROM THE ID3TAG AND PUT IT IN THE FEED, in a sense.
 
 - get the pubdate from the file date of modification
