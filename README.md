@@ -13,24 +13,23 @@ The only thing is that you'd better have some id3tags ready in your files, AS YO
 
 ### What it does :
 - get all the files in the folder with their lenght and generate XML items with an enclosure for each one
-
-### What it will do (TODO)
 - ignore every type of file or folder EXCEPT the handful which are compatible and really used with podcasting (audio/mp3, audio/m4a, video/mp4, video/m4v). No epub or pdf, because WHO USES IT ?
-
+- get the pubdate from the file date of modification
 - Get info for the items from the id3tags :
    - get the title from the title of the media (id3tag)
    - get the author from the artist of the media (id3tag)
-   - get description fom the comment section of the id3tags (why not accept markdown formatting)
-   - get link from the URL field of the media (id3tag)
-   - GET ALL THE INFOS FROM THE ID3TAG AND PUT IT IN THE FEED, in a sense.
+   - has some sort of cache so that the id3tags and covers are not read at every f....ing refresh
 
-- get the pubdate from the file date of modification
+
+### What it will do (TODO)
+- get description fom the comment section of the id3tags (why not accept markdown formatting)
+- get link from the URL field of the media (id3tag)
+- GET ALL THE OTHER INFOS FROM THE ID3TAG AND PUT IT IN THE FEED, in a sense.
 - Have a GUID liked to the filename so that you can replace a file if you didn't check before uploading and have to reupload your episode and not f...k everything up for your subscribers 
 - get the feed infos it can't get from elsewhere from a feed.config file you will put next to the php script (if you want)
 
 ### What it would be fun to do
 - get the artworks from the id3tag, put it in a subfolder and link to it for every episode
-- get some sort of cache so that the id3tags are not read at every f....ing refresh
 - stylize the duck out of that xml so that a human can read it without bionic/dev eyes and BOOM, here is your website !
 
 ### What it will NEVER DO
