@@ -33,7 +33,6 @@ The only thing is that you'd better have some id3tags ready in your files, AS YO
 - stylize the duck out of that xml so that a human can read it without bionic/dev eyes and BOOM, here is your website !
 
 ### What it will NEVER DO
-- link to an article for every episode, because if you have a blog to link to, it will probably be able to do podcasting, or else, get a good one moron.
 - add tags to items, because no-one fills it anyway
 
 
