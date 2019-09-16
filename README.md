@@ -12,24 +12,26 @@ It's rough, it's kind of not for production use, but hey, do you have time to sp
 The only thing is that you'd better have some id3tags ready in your files, AS YOU SHOULD *wink wink*, because it heavily depends on it.
 
 ### What it does :
-- get all the files in the folder with their lenght and generate XML items with an enclosure for each one
-- ignore every type of file or folder EXCEPT the handful which are compatible and really used with podcasting (audio/mp3, audio/m4a, video/mp4, video/m4v). No epub or pdf, because WHO USES IT ?
-- get the pubdate from the file date of modification
-- Get info for the items from the id3tags :
-   - get the title from the title of the media (id3tag)
-   - get the author from the artist of the media (id3tag)
-   - has some sort of cache so that the id3tags and covers are not read at every f....ing refresh
+-Autoinstall on first launch
+- Gets all the files in the folder with their lenght and generate XML items with an enclosure for each one
+- Ignores every type of file or folder EXCEPT the handful which are compatible and really used with podcasting (audio/mp3, audio/m4a, video/mp4, video/m4v). No epub or pdf, because WHO USES IT ?
+- gets the pubdate from the file date of modification
+- Gets info for the items from the id3tags :
+   - gets the title from the title of the media (id3tag)
+   - gets the author from the artist of the media (id3tag)
+   - gets description fom the comment section of the id3tags (no formatting)
+   - gets link from the URL field of the media (id3tag)
+   - gets artwork of each episode from the file (id3tag)
+- Has some sort of cache so that the id3tags and covers are not read at every f....ing refresh
 
 
 ### What it will do (TODO)
-- get description fom the comment section of the id3tags (why not accept markdown formatting)
-- get link from the URL field of the media (id3tag)
+
 - GET ALL THE OTHER INFOS FROM THE ID3TAG AND PUT IT IN THE FEED, in a sense.
 - Have a GUID liked to the filename so that you can replace a file if you didn't check before uploading and have to reupload your episode and not f...k everything up for your subscribers 
 - get the feed infos it can't get from elsewhere from a feed.config file you will put next to the php script (if you want)
 
 ### What it would be fun to do
-- get the artworks from the id3tag, put it in a subfolder and link to it for every episode
 - stylize the duck out of that xml so that a human can read it without bionic/dev eyes and BOOM, here is your website !
 
 ### What it will NEVER DO
