@@ -12,7 +12,8 @@ It's rough, it's kind of not for production use, but hey, do you have time to sp
 The only thing is that you'd better have some id3tags ready in your files, AS YOU SHOULD *wink wink*, because it heavily depends on it.
 
 ### What it does :
--Autoinstall on first launch
+- Autoinstalls on first launch (just ping the rss-gen.php file and it's magical)
+- Creates a /.rss-gen-cache/ folder to store all the things it will need
 - Gets all the files in the folder with their lenght and generate XML items with an enclosure for each one
 - Ignores every type of file or folder EXCEPT the handful which are compatible and really used with podcasting (audio/mp3, audio/m4a, video/mp4, video/m4v). No epub or pdf, because WHO USES IT ?
 - gets the pubdate from the file date of modification
