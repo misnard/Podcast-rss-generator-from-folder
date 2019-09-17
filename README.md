@@ -29,7 +29,7 @@ The only thing is that you'd better have some id3tags ready in your files, AS YO
 ### What it will do (TODO)
 
 - get the feed infos it can't get from elsewhere from a feed.config file you will put next to the php script (if you want)
-- Have fallbacks when no title or description
+- Have fallbacks when no title or description (use the name of the file for the title)
 - GET ALL THE OTHER INFOS FROM THE ID3TAG AND PUT IT IN THE FEED, in a sense.
 - Have a GUID liked to the filename so that you can replace a file if you didn't check before uploading and have to reupload your episode and not f...k everything up for your subscribers 
 
