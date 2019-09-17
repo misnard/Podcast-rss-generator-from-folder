@@ -35,7 +35,7 @@ The only thing is that you'd better have some id3tags ready in your files, AS YO
 
 
 ### What it would be fun to do
-- stylize the duck out of that xml so that a human can read it without bionic/dev eyes and BOOM, here is your website !
+- stylize the duck out of that xml with xslt so that a human can read it without bionic/dev eyes and BOOM, here is your website !
 
 ### What it will NEVER DO
 - add tags to items, because no-one fills it anyway
