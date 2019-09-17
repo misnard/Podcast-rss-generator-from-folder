@@ -33,6 +33,7 @@ The only thing is that you'd better have some id3tags ready in your files, AS YO
 - Have a GUID liked to the filename so that you can replace a file if you didn't check before uploading and have to reupload your episode and not f...k everything up for your subscribers 
 - not crash the title like a moron when a title has a "&" in it
 
+
 ### What it would be fun to do
 - stylize the duck out of that xml so that a human can read it without bionic/dev eyes and BOOM, here is your website !
 
@@ -45,3 +46,13 @@ That will be fun, lads.
 ### Troubleshooting 
 Just delete the /.rss-gen-cache/ folder, it should regenerate everything from scratch
 
+### What is id3tag ?
+ID3 is a metadata container most often used in conjunction with the MP3 audio file format. It allows information such as the title, artist, album, track number, and other information about the file, like the cover art, to be stored in the file itself.
+
+![EXAMPLE ID3TAG](https://i.imgur.com/sLRo1WX.png)
+
+To edit yout medias and write id3tags in them, we advice using the following free softwares:
+- [EasyTAG](https://wiki.gnome.org/Apps/EasyTAG) on Windows and Linux 
+- [MP3TAG](https://www.mp3tag.de/en/) on Windows and MacOS
+
+(Media players such as iTunes are also able to edit those tags, FYI)
