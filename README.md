@@ -24,6 +24,8 @@ The only thing is that you'd better have some id3tags ready in your files, AS YO
    - gets link from the URL field of the media (id3tag)
    - gets artwork of each episode from the file (id3tag)
 - Has some sort of cache so that the id3tags and covers are not read at every f....ing refresh
+- not crash the title like a moron when a title has a "&" in it
+
 
 
 ### What it will do (TODO)
@@ -31,7 +33,6 @@ The only thing is that you'd better have some id3tags ready in your files, AS YO
 - get the feed infos it can't get from elsewhere from a feed.config file you will put next to the php script (if you don't, it should have some sort of fallback, like the name of the folder, at least)
 - Have fallbacks when no title or description (use the filename for the title)
 - Have a GUID liked to the filename so that you can replace a file if you didn't check before uploading and have to reupload your episode and not f...k everything up for your subscribers 
-- not crash the title like a moron when a title has a "&" in it
 
 
 ### What it would be fun to do
