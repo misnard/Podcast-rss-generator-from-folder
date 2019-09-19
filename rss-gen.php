@@ -32,13 +32,16 @@ class RssGenerator
     protected $channelNode;
     protected $currentUrl;
     protected $ID3;
+    protected $config;
 
     public function __construct()
     {
+        $this->getConfig();
         $this->ID3 = new getID3;
         $this->rssNode = new SimpleXMLElement('<rss />');
         $this->rssNode->addAttribute('version', '2.0');
         $this->rssNode->addAttribute('itunes:xmlns', null, 'http://www.itunes.com/dtds/podcast-1.0.dtd');
+        $this->rssNode->addAttribute('dc:xmlns', null, 'http://purl.org/dc/elements/1.1/');
 
         $this->channelNode = $this->rssNode->addChild('channel');
 
@@ -94,14 +97,10 @@ class RssGenerator
 
         foreach ($id3Infos as $key => $id3Info) {
             //todo switch if params is here
-            if ($key === "itunes:image") {
-                $this->insertFileTags($xmlItem, $key, null, ['href' => $id3Info], "itunes");
-            } elseif ($key === "itunes:duration") {
-                $this->insertFileTags($xmlItem, $key, $id3Info, [], "itunes");
-            } elseif ($key === "itunes:author") {
-                $this->insertFileTags($xmlItem, $key, $id3Info, [], "itunes");
-            } elseif ($key === "dc:creator") {
-                $this->insertFileTags($xmlItem, $key, $id3Info, [], "dc");
+            if ($key === "itunes:itunes:image") {
+                $this->insertFileTags($xmlItem, $key, null, ['href' => $id3Info]);
+            } elseif ($key === "guid") {
+                $this->insertFileTags($xmlItem, $key, $id3Info, ["isPermaLink" => "false"]);
             } else {
                 $this->insertFileTags($xmlItem, $key, $id3Info);
             }
@@ -135,15 +134,22 @@ class RssGenerator
                     file_put_contents($imageName, 
                     $id3FileInfos['comments']['picture'][0]['data']);
                 }
+                $fileExtention = pathinfo($item['item_name'], PATHINFO_EXTENSION);
                 $filteredId3Infos = [
-                    "title" => $id3FileInfos['tags']['id3v2']['title'][0] ?? "Default Title",
-                    "pubDate" => date("F d Y H:i:s", filemtime($item['item_name'])),
-                    "description" => $id3FileInfos['tags']['id3v2']['comment'][0] ?? "Default description",
+                    "title" => !empty($id3FileInfos['tags']['id3v2']['title'][0]) 
+                    ? htmlspecialchars($id3FileInfos['tags']['id3v2']['title'][0]) 
+                    : $item['item_name'],
+                    "pubDate" => date("D, d M y H:i:s O", filemtime($item['item_name'])),
+                    "description" => !empty($id3FileInfos['tags']['id3v2']['comment'][0]) ? 
+                    htmlspecialchars($id3FileInfos['tags']['id3v2']['comment'][0]) : " ",
                     "link" => $id3FileInfos['tags']['id3v2']['url_user'][0] ?? null,
-                    "dc:creator" => $id3FileInfos['tags']['id3v2']['artist'][0] ?? "Default Creator",
-                    "itunes:duration" => $id3FileInfos['playtime_string'] ?? "00:00",
-                    "itunes:author" =>  $id3FileInfos['tags']['id3v2']['artist'][0] ?? "Default Creator",
-                    "itunes:image" => $this->currentUrl . $imageName
+                    "dc:dc:creator" => !empty($id3FileInfos['tags']['id3v2']['artist'][0]) ? 
+                    htmlspecialchars($id3FileInfos['tags']['id3v2']['artist'][0]) : "Default Creator",
+                    "itunes:itunes:duration" => $id3FileInfos['playtime_string'] ?? "00:00",
+                    "itunes:itunes:author" =>  !empty($id3FileInfos['tags']['id3v2']['artist'][0]) 
+                    ? htmlspecialchars($id3FileInfos['tags']['id3v2']['artist'][0]) : "Default Creator",
+                    "itunes:itunes:image" => $this->currentUrl . $imageName,
+                    "guid" => md5($item['item_name'])
                 ];
 
                 $fileStream = fopen($id3FilePath, 'wb');
@@ -163,6 +169,17 @@ class RssGenerator
         $xmlEnclosure->addAttribute('url', $this->getItemUrl($item['item_name']));
         $xmlEnclosure->addAttribute('length',filesize($item['item_name']));
         $xmlEnclosure->addAttribute('type', $item['item_extension']);
+    }
+
+    public function getConfig()
+    {
+        $file = new SplFileObject("feed.config");
+
+        while ($file->valid()) {
+            $this->config[] = explode("=", trim($file->fgets()));
+        }
+
+        unset($file);
     }
 
     public function displayRss()
