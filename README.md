@@ -32,11 +32,12 @@ The only thing is that you'd better have some id3tags ready in your files, AS YO
 ### What it will do (TODO)
 
 - get the feed infos it can't get from elsewhere from a feed.config file you will put next to the php script (if you don't, it should have some sort of fallback, like the name of the folder, at least)
-- Make this a folder-only thingy, with everything in a /rss folder
 
 
 ### What it would be fun to do
 - stylize the duck out of that xml with xslt so that a human can read it without bionic/dev eyes and BOOM, here is your website !
+- Make this a folder-only thingy, with everything in a /rss folder
+
 
 ### What it will NEVER DO
 - add tags to items, because no-one fills it anyway
