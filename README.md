@@ -33,6 +33,7 @@ The only thing is that you'd better have some id3tags ready in your files, AS YO
 - get the feed infos it can't get from elsewhere from a feed.config file you will put next to the php script (if you don't, it should have some sort of fallback, like the name of the folder, at least)
 - Have fallbacks when no title or description (use the filename for the title)
 - Have a GUID liked to the filename so that you can replace a file if you didn't check before uploading and have to reupload your episode and not f...k everything up for your subscribers 
+- Make this a folder-only thingy, with everything in a /rss folder
 
 
 ### What it would be fun to do
