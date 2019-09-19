@@ -36,7 +36,9 @@ The only thing is that you'd better have some id3tags ready in your files, AS YO
 
 ### What it would be fun to do
 - stylize the duck out of that xml with xslt so that a human can read it without bionic/dev eyes and BOOM, here is your website !
-- Make this a folder-only thingy, with everything in a /rss folder
+- Make this a folder-only thingy, with everything in a /rss folder for example
+or
+- Make this a file-only thingy, with auto-install of all the other files (style, config etc) that are generated from the php file
 
 
 ### What it will NEVER DO
