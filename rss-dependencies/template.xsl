@@ -74,6 +74,7 @@
                     #channel-header {
                         margin-bottom: 20px;
                         padding-top: 20px;
+                        margin-left: -10px;
                     }
                     .channel-item {
                         clear: both;
