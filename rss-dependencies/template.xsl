@@ -157,20 +157,17 @@
                         </div>
                         <div class="channel-author">
                             <xsl:value-of select="/rss/channel/itunes:author" disable-output-escaping="yes"/>
-
-                        </div>
-                        <p>
-                            <a style="
-    font-size: large;
-    font-weight: 600;
-">
+ 						<a style="font-size: large;font-weight: 600;">
                                 <xsl:attribute name="href">
                                     <xsl:value-of select="/rss/channel/link"/>
                                 </xsl:attribute>
                                 <xsl:attribute name="target">_blank</xsl:attribute>
                                 🌐
                             </a>
-                        </p>
+                        </div>
+                        
+                           
+                        
                     </div>
                     <xsl:for-each select="/rss/channel/item">
                         <div class="channel-item">
