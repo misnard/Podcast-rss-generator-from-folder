@@ -13,7 +13,7 @@ The only thing is that you'd better have some id3tags ready in your files, AS YO
 
 ### What it does :
 - Autoinstalls on first launch (just ping the rss-gen.php file and it's magical)
-- Creates a /.rss-gen-cache/ folder to store all the things it will need
+- Creates a /.rss-dependencies/ folder to store all the things it will need
 - Gets all the files in the folder with their lenght and generate XML items with an enclosure for each one
 - Ignores every type of file or folder EXCEPT the handful which are compatible and really used with podcasting (audio/mp3, audio/m4a, video/mp4, video/m4v). No epub or pdf, because WHO USES IT ?
 - gets the pubdate from the file date of modification
@@ -48,7 +48,7 @@ or
 That will be fun, lads.
 
 ### Troubleshooting 
-Just delete the /.rss-gen-cache/ folder, it should regenerate everything from scratch
+Just delete the /.rss-dependencies/ folder, it should regenerate everything from scratch
 
 ### What is id3tag ?
 ID3 is a metadata container most often used in conjunction with the MP3 audio file format. It allows information such as the title, artist, album, track number, and other information about the file, like the cover art, to be stored in the file itself.
