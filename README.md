@@ -5,7 +5,7 @@ Podcast RSS Generator From Folder (or PRGFF if you want to splutter) is a PHP sc
 It will generate for you, lazies out there, a podcast feed which will somewhat kind of work but iTunes will probably pee on it with disgust
 
 That's about it.
-You put the file in a folder with medias, BOOM, you have a podcast feed.
+You put ONLY the rss.php file in a folder with medias, BOOM, you have a podcast feed.
 
 It's rough, it's kind of not for production use, but hey, do you have time to spare doing all the work yourself ?
 
