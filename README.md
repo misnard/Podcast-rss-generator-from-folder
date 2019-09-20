@@ -26,10 +26,11 @@ The only thing is that you'd better have some id3tags ready in your files, AS YO
 - Has some sort of cache so that the id3tags and covers are not read at every f....ing refresh
 - Have fallbacks when no title or description (uses the filename for the title)
 - Have a GUID liked to the filename so that you can replace a file if you didn't check before uploading and have to reupload your episode and not f...k everything up for your subscribers 
-- stylize the duck out of that xml with xsl so that a human can read it without bionic/dev eyes and BOOM, here is your effort-free website !
+
 
 ### What it will do (TODO)
-
+- Have fallbacks when no image for the episode (image of the feed)
+- stylize the duck out of that xml with xsl so that a human can read it without bionic/dev eyes and BOOM, here is your effort-free website !
 - get the feed infos it can't get from elsewhere from a feed.config file you will put next to the php script (if you don't, it should have some sort of fallback, like the name of the folder, at least)
 
 
