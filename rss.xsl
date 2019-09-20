@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xsl:stylesheet version="2.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-    <xsl:output method="html" version="1.0" encoding="UTF-8" indent="yes"/>
+<xsl:stylesheet version="2.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">
+    <xsl:output method="html" version="1.0" encoding="ISO-8859-1" indent="yes"/>
     <xsl:template match="/">
+
         <html xmlns="http://www.w3.org/1999/xhtml">
-            <head>
+            <head>            	
                 <title><xsl:value-of select="/rss/channel/title"/> - RSS Feed</title>
                 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
                 <style type="text/css">
+                	@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600');
+
                     body {
-                        font-family: Helvetica, Arial, sans-serif;
+                        font-family: 'Montserrat', sans-serif;
                         font-size: 14px;
                         color: #545454;
                         background: #E5E5E5;
@@ -28,13 +31,24 @@
                     a:hover {
                         color: #000;
                     }
-                    h1, h2, h3, p {
+                    h1 {
+                    margin-top: 0;
+                    margin-bottom: 0;
+                    font-weight: 300;
+                    font-size: xx-large;
+                    }
+
+                    h2, h3 {
                         margin-top: 0;
-                        margin-bottom: 20px;
+                        margin-bottom: 0px;
+                        font-weight:300;
                     }
+
                     h3 {
-                        font-style: italic;
+                    	font-size:small;
+                    	font-weight: 500;
                     }
+                    
                     #content {
                         width: 700px;
                         margin: 0 auto;
@@ -51,7 +65,7 @@
                     #channel-image img {
                         width: 200px;
                         height: auto;
-                        border-radius: 5px;
+                        border-radius: 3px;
                     }
                     #channel-header {
                         margin-bottom: 20px;
@@ -59,18 +73,46 @@
                     .channel-item {
                         clear: both;
                         border-top: 1px solid #E5E5E5;
-                        padding: 20px;
+                        padding: 10px;
+                        padding-bottom: 0;
                     }
+
+                    .episode-image {
+                        float: left;
+                        width: 100px;
+                        margin-right: 20px;
+                    }
+
                     .episode-image img {
                         width: 100px;
                         height: auto;
-                        margin: 0 30px 15px 0;
                         border-radius: 5px;
                     }
+ 					.episode-description {
+                        min-height : 100px;
+                    }
+                    .episode-title {
+                        margin-bottom:20px;
+                    }
+
                     .episode_meta {
                         font-size: 11px;
-                        font-weight: bold;
-                        font-style: italic;
+                        font-weight: 600;
+                        margin-top: 20px;
+                    }
+                    .channel-description {
+						margin-bottom: 10px;
+
+                    }
+                     .channel-author {
+   						 font-size: small;
+  					     font-weight: 600;
+  					     margin-bottom: 10px;                    
+                    }
+                     .channel-subtitle {
+   						 font-size: small;
+  					     font-weight: 500;
+  					     margin-bottom: 20px;                    
                     }
                 </style>
             </head>
@@ -83,53 +125,81 @@
                         <h1>
                             <xsl:if test="/rss/channel/image">
                                 <div id="channel-image">
-                                    <a>
-                                        <xsl:attribute name="href">
-                                            <xsl:value-of select="/rss/channel/image/link"/>
-                                        </xsl:attribute>
-                                        <img>
+                                    <img>
                                             <xsl:attribute name="src">
                                                 <xsl:value-of select="/rss/channel/image/url"/>
                                             </xsl:attribute>
                                             <xsl:attribute name="title">
                                                 <xsl:value-of select="/rss/channel/image/title"/>
                                             </xsl:attribute>
-                                        </img>
-                                    </a>
+                                        </img>                                  
                                 </div>
                             </xsl:if>
                             <xsl:value-of select="/rss/channel/title"/>
                         </h1>
+                        <div class="channel-subtitle">
+                            <xsl:value-of select="/rss/channel/itunes:subtitle" disable-output-escaping="yes"/>
+                        </div>
+                        <div class="channel-description">
+                            <xsl:value-of select="/rss/channel/description" disable-output-escaping="yes"/>
+                        </div>
+                        <div class="channel-author">
+                            <xsl:value-of select="/rss/channel/itunes:author" disable-output-escaping="yes"/>
+
+                        </div>
                         <p>
-                            <xsl:value-of select="/rss/channel/description"/>
-                        </p>
-                        <p>
-                            <a>
+                            <a style="
+    font-size: large;
+    font-weight: 600;
+">
                                 <xsl:attribute name="href">
                                     <xsl:value-of select="/rss/channel/link"/>
                                 </xsl:attribute>
                                 <xsl:attribute name="target">_blank</xsl:attribute>
-                                Visit podcast website &#x0226B;
+                                🌐
                             </a>
                         </p>
                     </div>
                     <xsl:for-each select="/rss/channel/item">
                         <div class="channel-item">
+                           <div class="episode-title">
                             <h2>
                                 <a>
                                     <xsl:attribute name="href">
                                         <xsl:value-of select="link"/>
                                     </xsl:attribute>
+                          
                                     <xsl:attribute name="target">_blank</xsl:attribute>
                                     <xsl:value-of select="title"/>
                                 </a>
                             </h2>
+                            <h3>
+                         		 <xsl:if test="itunes:author">
+                               		 <xsl:value-of select="itunes:author" disable-output-escaping="yes"/>
+                               	 </xsl:if>
+                         	</h3>
+                           </div>
+                            <div class="episode-image">
+                           			 <img>
+                                            <xsl:attribute name="src">
+                                                <xsl:value-of select="itunes:image/@href"/>
+                                            </xsl:attribute>
+                                            <xsl:attribute name="title">
+                                                <xsl:value-of select="title"/>
+                                            </xsl:attribute>
+                           			  </img>
+                         	</div>
+                         	<div class="episode-description">
+                         		
                             <xsl:if test="description">
                                 <p>
                                     <xsl:value-of select="description" disable-output-escaping="yes"/>
                                 </p>
                             </xsl:if>
+                           
+                        	</div>
                             <p class="episode_meta">
+                            	   
                                     <a>
                                         <xsl:attribute name="href">
                                             <xsl:value-of select="enclosure/@url"/>?ref=download
@@ -143,7 +213,8 @@
                                         <xsl:attribute name="target">_blank</xsl:attribute>
                                         Play in new window
                                     </a> |
-                                    File size: <xsl:value-of select='format-number(number(enclosure/@length div "1024000"),"0.0")'/>MB
+                                    File size: <xsl:value-of select='format-number(number(enclosure/@length div "1024000"),"0.0")'/>MB |
+                                    <xsl:value-of select="pubDate" disable-output-escaping="yes"/>
                             </p>
                         </div>
                     </xsl:for-each>
