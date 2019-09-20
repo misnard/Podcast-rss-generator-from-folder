@@ -12,7 +12,7 @@ It's rough, it's kind of not for production use, but hey, do you have time to sp
 The only thing is that you'd better have some id3tags ready in your files, AS YOU SHOULD *wink wink*, because it heavily depends on it.
 
 ### What it does :
-<img align="left" width="350" src="https://i.imgur.com/n4AiKPF.png">
+<img align="right" width="350" src="https://i.imgur.com/n4AiKPF.png">
 - Autoinstalls on first launch (just ping the rss.php file and it's magical)
 - Creates a /.rss-dependencies/ folder to store all the things it will need
 - Gets all the files in the folder with their lenght and generate XML items with an enclosure for each one
