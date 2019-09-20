@@ -85,6 +85,8 @@
                         float: left;
                         width: 100px;
                         margin-right: 20px;
+                        margin-bottom: 10px;
+
                     }
 
                     .episode-image img {
@@ -92,9 +94,7 @@
                         height: auto;
                         border-radius: 5px;
                     }
- 					.episode-description {
-                        min-height : 100px;
-                    }
+ 					
                     .episode-title {
                         margin-bottom:20px;
                     }
@@ -111,7 +111,7 @@
                     }
                      .channel-copyright {
                      	 	 text-align: center;
-   							 margin: 5px;
+   							 margin: 10px;
    							 font-size: small;
 
                     }
@@ -184,14 +184,7 @@
                                     <xsl:attribute name="target">_blank</xsl:attribute>
                                     <xsl:value-of select="title"/>
                                 </a>
-                            </h2>
-                            <h3>
-                         		 <xsl:if test="itunes:author">
-                               		 <xsl:value-of select="itunes:author" disable-output-escaping="yes"/>
-                               	 </xsl:if>
-                         	</h3>
-                           </div>
-                            <div class="episode-image">
+                                <div class="episode-image">
                            			 <img>
                                             <xsl:attribute name="src">
                                                 <xsl:value-of select="itunes:image/@href"/>
@@ -200,7 +193,15 @@
                                                 <xsl:value-of select="title"/>
                                             </xsl:attribute>
                            			  </img>
-                         	</div>
+                         		</div>
+                            </h2>
+                            <h3>
+                         		 <xsl:if test="itunes:author">
+                               		 <xsl:value-of select="itunes:author" disable-output-escaping="yes"/>
+                               	 </xsl:if>
+                         	</h3>
+                           </div>
+                            
                          	<div class="episode-description">
                          		
                             <xsl:if test="description">
@@ -220,13 +221,13 @@
                                         <xsl:value-of select='format-number(number(enclosure/@length div "1024000"),"0.0")'/>MB
                                     </a> | ⏱ 
                                     <xsl:value-of select="itunes:duration" disable-output-escaping="yes"/> | 🗓
-                                    <xsl:value-of select="pubDate" disable-output-escaping="yes"/>
+                                    <xsl:value-of select="pubDate" />
                             </p>
                         </div>
                     </xsl:for-each>
                 </div>
                 <div class="channel-copyright">
-                	<xsl:value-of select="/rss/channel/webMaster"/>
+                	<xsl:value-of select="/rss/channel/copyright"/>
             	</div>
             </body>
         </html>
