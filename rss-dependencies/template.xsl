@@ -225,7 +225,7 @@
                     </xsl:for-each>
                 </div>
                 <div class="channel-copyright">
-                	<xsl:value-of select="/rss/channel/copyright"/>
+                	&#x24B8; <xsl:value-of select="/rss/channel/copyright"/>
             	</div>
             </body>
         </html>
