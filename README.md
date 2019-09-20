@@ -6,13 +6,13 @@ It will generate for you, lazies out there, a podcast feed which will somewhat k
 
 That's about it.
 You put ONLY the rss.php file in a folder with medias, BOOM, you have a podcast feed.
+<img align="right" width="350" src="https://i.imgur.com/n4AiKPF.png">
 
 It's rough, it's kind of not for production use, but hey, do you have time to spare doing all the work yourself ?
 
 The only thing is that you'd better have some id3tags ready in your files, AS YOU SHOULD *wink wink*, because it heavily depends on it.
 
 ### What it does :
-<img align="right" width="350" src="https://i.imgur.com/n4AiKPF.png">
 - Autoinstalls on first launch (just ping the rss.php file and it's magical)
 - Creates a /.rss-dependencies/ folder to store all the things it will need
 - Gets all the files in the folder with their lenght and generate XML items with an enclosure for each one
