@@ -44,10 +44,7 @@ That will be fun, lads.
 Just delete the /.rss-dependencies/ folder, it should regenerate everything from scratch
 
 ### What is id3tag ?
-ID3 is a metadata container most often used in conjunction with the MP3 audio file format. It allows information such as the title, artist, album, track number, and other information about the file, like the cover art, to be stored in the file itself.
-
-![EXAMPLE ID3TAG](https://i.imgur.com/sLRo1WX.png)
-
+<img align="left" width="300" src="https://i.imgur.com/sLRo1WX.png">ID3 is a metadata container most often used in conjunction with the MP3 audio file format. It allows information such as the title, artist, album, track number, and other information about the file, like the cover art, to be stored in the file itself.
 To edit yout medias and write id3tags in them, we advice using the following free softwares:
 - [EasyTAG](https://wiki.gnome.org/Apps/EasyTAG) on Windows and Linux 
 - [MP3TAG](https://www.mp3tag.de/en/) on Windows and MacOS
