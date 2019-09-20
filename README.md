@@ -55,4 +55,4 @@ To edit yout medias and write id3tags in them, we advice using the following fre
 (Media players such as iTunes are also able to edit those tags, FYI)
 
 ### Sources
-The XSL template is shamelessly copied from https://github.com/TheCraigHewitt/Seriously-Simple-Podcasting
+The XSL template is shamelessly copied (and updated) from https://github.com/TheCraigHewitt/Seriously-Simple-Podcasting
