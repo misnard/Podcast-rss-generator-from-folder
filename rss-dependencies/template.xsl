@@ -80,6 +80,9 @@
                         clear: both;
                         border-top: 2px solid #E5E5E5;
                         margin: 10px;
+                        overflow-wrap: break-word;
+  						word-wrap: break-word;
+  						hyphens: auto;
                     }
 
                     .episode-image {
@@ -108,6 +111,9 @@
                     }
                     .channel-description {
 						margin-bottom: 10px;
+						overflow-wrap: break-word;
+  						word-wrap: break-word;
+  						hyphens: auto;
 
                     }
                      .channel-copyright {
