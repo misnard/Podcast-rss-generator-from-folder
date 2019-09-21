@@ -31,10 +31,10 @@
                         color: #000;
                     }
                     h1 {
-                    margin-top: 0;
-                    margin-bottom: 0;
-                    font-weight: 300;
-                    font-size: xx-large;
+                   		margin-top: 0;
+                   		 margin-bottom: 0;
+                   		 font-weight: 300;
+                   		 font-size: xx-large;
                     }
 
                     h2, h3 {
@@ -43,7 +43,7 @@
                         font-weight:300;
                     }
                     h2 {
-                    margin-top: 20px;
+                    	margin-top: 20px;
                     }
 
                     h3 {
@@ -86,10 +86,11 @@
                     }
 
                     .episode-image {
-                        float: left;
-                        width: 100px;
-                        margin-right: 20px;
-                        margin-bottom: 10px;
+                         float: left;
+   						 width: 100px;
+  						 margin-right: 10px;
+  						 margin-bottom: 10px;
+  					     margin-top: 10px;
 
                     }
 
