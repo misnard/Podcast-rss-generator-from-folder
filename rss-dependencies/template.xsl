@@ -50,6 +50,10 @@
                     	font-size:small;
                     	font-weight: 500;
                     }
+
+                    img {
+                    max-width: 100%;
+                    } 
                     
                     #content {
                         max-width: 900px;
