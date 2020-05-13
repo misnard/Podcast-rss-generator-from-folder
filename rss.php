@@ -92,16 +92,16 @@ class RssGenerator
     {
         $this->getConfig();
         $this->ID3 = new getID3;
-        $this->rssNode = new CustomXMLElement('<rss />');
+        $this->rssNode = new CustomXMLElement('<?xml version="1.0" encoding="UTF-8"?><rss />');
 
         if ($this->config['THEME_ENABLE']) {
             $this->rssNode->addProcessingInstruction('xml-stylesheet', 'type="text/xsl" href=".rss-dependencies/template.xsl"');
         }
 
         $this->rssNode->addAttribute('version', '2.0');
-        $this->rssNode->addAttribute('encoding', 'utf-8');
-        $this->rssNode->addAttribute('itunes:xmlns', null, 'http://www.itunes.com/dtds/podcast-1.0.dtd');
-        $this->rssNode->addAttribute('dc:xmlns', null, 'http://purl.org/dc/elements/1.1/');
+        $this->rssNode->addAttribute('xmlns:xmlns:itunes', 'http://www.itunes.com/dtds/podcast-1.0.dtd');
+        $this->rssNode->addAttribute('xmlns:xmlns:dc', 'http://purl.org/dc/elements/1.1/');
+        $this->rssNode->addAttribute('xmlns:xmlns:atom', 'http://www.w3.org/2005/Atom');
 
         $this->channelNode = $this->rssNode->addChild('channel');
 
@@ -240,7 +240,7 @@ class RssGenerator
                     "title" => !empty($id3FileInfos['tags']['id3v2']['title'][0])
                         ? htmlspecialchars($id3FileInfos['tags']['id3v2']['title'][0])
                         : $item['item_name'],
-                    "pubDate" => date("D, d M y H:i:s O", filemtime($item['item_name'])),
+                    "pubDate" => date("D, d M Y H:i:s O", filemtime($item['item_name'])),
                     "description" => !empty($id3FileInfos['tags']['id3v2']['comment'][0]) ?
                         htmlspecialchars($id3FileInfos['tags']['id3v2']['comment'][0]) : " ",
                     "link" => $id3FileInfos['tags']['id3v2']['url_user'][0] ?? null,
@@ -260,7 +260,7 @@ class RssGenerator
                 fclose($fileStream);
 
                 /** Update last build date */
-                file_put_contents('./.rss-dependencies/.cache/date.txt', date("D, d M y H:i:s O"));
+                file_put_contents('./.rss-dependencies/.cache/date.txt', date("D, d M Y H:i:s O"));
             }
         }
 
@@ -299,7 +299,7 @@ class RssGenerator
 
         $this->channelNode->addChild('lastBuildDate', $lastBuildDate);
 
-        $channelAtomTag = $this->channelNode->addChild('atom:link');
+        $channelAtomTag = $this->channelNode->addChild('atom:atom:link');
         $channelAtomTag->addAttribute('href', $this->currentUrl);
         $channelAtomTag->addAttribute('rel', 'self');
         $channelAtomTag->addAttribute('type', 'application/rss+xml');
@@ -307,8 +307,6 @@ class RssGenerator
         $this->channelNode->addChild('language', $this->config['LANGUAGE']);
 
         $this->channelNode->addChild('webMaster', htmlspecialchars($this->config['MAIL'] . ' (' . $this->config['AUTHOR'] . ')'));
-
-        $this->channelNode->addChild('language', htmlspecialchars($this->config['TITLE']));
 
         $this->channelNode->addChild('itunes:itunes:summary', htmlspecialchars($this->config['DESCRIPTION']));
 
@@ -321,7 +319,7 @@ class RssGenerator
         $this->channelNode->addChild('itunes:itunes:image')
             ->addAttribute('href', $this->config['IMAGE']);
 
-        $channelOwnerTag = $this->channelNode->addChild('itunes:owner');
+        $channelOwnerTag = $this->channelNode->addChild('itunes:itunes:owner');
         $channelOwnerTag->addChild('itunes:itunes:name', htmlspecialchars($this->config['AUTHOR']));
         $channelOwnerTag->addChild('itunes:itunes:email', htmlspecialchars($this->config['MAIL']));
 
