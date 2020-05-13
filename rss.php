@@ -299,7 +299,7 @@ class RssGenerator
 
         $this->channelNode->addChild('lastBuildDate', $lastBuildDate);
 
-        $channelAtomTag = $this->channelNode->addChild('atom:link');
+        $channelAtomTag = $this->channelNode->addChild('atom:atom:link');
         $channelAtomTag->addAttribute('href', $this->currentUrl);
         $channelAtomTag->addAttribute('rel', 'self');
         $channelAtomTag->addAttribute('type', 'application/rss+xml');
