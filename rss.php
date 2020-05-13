@@ -92,14 +92,13 @@ class RssGenerator
     {
         $this->getConfig();
         $this->ID3 = new getID3;
-        $this->rssNode = new CustomXMLElement('<rss />');
+        $this->rssNode = new CustomXMLElement('<?xml version="1.0" encoding="UTF-8"?><rss />');
 
         if ($this->config['THEME_ENABLE']) {
             $this->rssNode->addProcessingInstruction('xml-stylesheet', 'type="text/xsl" href=".rss-dependencies/template.xsl"');
         }
 
         $this->rssNode->addAttribute('version', '2.0');
-        $this->rssNode->addAttribute('encoding', 'utf-8');
         $this->rssNode->addAttribute('xmlns:xmlns:itunes', 'http://www.itunes.com/dtds/podcast-1.0.dtd');
         $this->rssNode->addAttribute('xmlns:xmlns:dc', 'http://purl.org/dc/elements/1.1/');
         $this->rssNode->addAttribute('xmlns:xmlns:atom', 'http://www.w3.org/2005/Atom');
