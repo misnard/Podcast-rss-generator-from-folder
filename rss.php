@@ -319,7 +319,7 @@ class RssGenerator
         $this->channelNode->addChild('itunes:itunes:image')
             ->addAttribute('href', $this->config['IMAGE']);
 
-        $channelOwnerTag = $this->channelNode->addChild('itunes:owner');
+        $channelOwnerTag = $this->channelNode->addChild('itunes:itunes:owner');
         $channelOwnerTag->addChild('itunes:itunes:name', htmlspecialchars($this->config['AUTHOR']));
         $channelOwnerTag->addChild('itunes:itunes:email', htmlspecialchars($this->config['MAIL']));
 
