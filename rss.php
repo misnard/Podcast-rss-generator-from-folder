@@ -100,8 +100,9 @@ class RssGenerator
 
         $this->rssNode->addAttribute('version', '2.0');
         $this->rssNode->addAttribute('encoding', 'utf-8');
-        $this->rssNode->addAttribute('itunes:xmlns', null, 'http://www.itunes.com/dtds/podcast-1.0.dtd');
-        $this->rssNode->addAttribute('dc:xmlns', null, 'http://purl.org/dc/elements/1.1/');
+        $this->rssNode->addAttribute('xmlns:xmlns:itunes', 'http://www.itunes.com/dtds/podcast-1.0.dtd');
+        $this->rssNode->addAttribute('xmlns:xmlns:dc', 'http://purl.org/dc/elements/1.1/');
+        $this->rssNode->addAttribute('xmlns:xmlns:atom', 'http://www.w3.org/2005/Atom');
 
         $this->channelNode = $this->rssNode->addChild('channel');
 
