@@ -240,7 +240,7 @@ class RssGenerator
                     "title" => !empty($id3FileInfos['tags']['id3v2']['title'][0])
                         ? htmlspecialchars($id3FileInfos['tags']['id3v2']['title'][0])
                         : $item['item_name'],
-                    "pubDate" => date("D, d M y H:i:s O", filemtime($item['item_name'])),
+                    "pubDate" => date("D, d M Y H:i:s O", filemtime($item['item_name'])),
                     "description" => !empty($id3FileInfos['tags']['id3v2']['comment'][0]) ?
                         htmlspecialchars($id3FileInfos['tags']['id3v2']['comment'][0]) : " ",
                     "link" => $id3FileInfos['tags']['id3v2']['url_user'][0] ?? null,
@@ -260,7 +260,7 @@ class RssGenerator
                 fclose($fileStream);
 
                 /** Update last build date */
-                file_put_contents('./.rss-dependencies/.cache/date.txt', date("D, d M y H:i:s O"));
+                file_put_contents('./.rss-dependencies/.cache/date.txt', date("D, d M Y H:i:s O"));
             }
         }
 
