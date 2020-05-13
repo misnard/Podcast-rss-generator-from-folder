@@ -308,8 +308,6 @@ class RssGenerator
 
         $this->channelNode->addChild('webMaster', htmlspecialchars($this->config['MAIL'] . ' (' . $this->config['AUTHOR'] . ')'));
 
-        $this->channelNode->addChild('language', htmlspecialchars($this->config['TITLE']));
-
         $this->channelNode->addChild('itunes:itunes:summary', htmlspecialchars($this->config['DESCRIPTION']));
 
         $this->channelNode->addChild('itunes:itunes:subtitle', htmlspecialchars($this->config['SUBTITLE']));
